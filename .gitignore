@@ -1,31 +1,61 @@
-/key.fingerprint
-/key.ppk.pub
-/sshaccess
-/src/dvda-author
-/src/dvda
-/libfixwav/src/libfixwav.a
-/libiberty/src/libiberty.a
-/libutils/src/libc_utils.a
-/dvda-author-dev.pro.user
-/PATCHED.DOWNLOADS
-/DOWNLOADS
-**aclocal.m4
-**autom4te.cache
-build-*
-configure
-local/**
-**.o
+# .gitignore for the fork
+# Keeps every entry upstream already had, and adds the artifacts that
+# autogen / configure / libtool leave behind on a modern Ubuntu build.
+# Note: `configure` is deliberately NOT ignored — upstream tracks it.
+
+# --- autogen / configure / libtool output -------------------------------
+/config.h
+/config.log
+/config.status
+/config.h.in~
+/configure~
+/config/
+/depconf/
+/mk/*.mk
+
+# --- build output ------------------------------------------------------
 **Makefile
-**.Po
+**.o
+**.lo
+**.a
 **.la
 **.libs
 **.deps
-**.directory
+**.Po
 stamp*
-**ppk
-**.old
-**.zip
-**.gz
-**.bz2
-**.xz
+build-*
+local/**
+/src/dvda-author
+/src/dvda-author-dev
+/libfixwav/src/libfixwav.a
+/libutils/src/libc_utils.a
+/libiberty/src/libiberty.a
+/DOWNLOADS
+/PATCHED.DOWNLOADS
 
+# --- toolchain / editor / OS -------------------------------------------
+**aclocal.m4
+**autom4te.cache
+*.swp
+*~
+.DS_Store
+*.pro.user
+*.orig
+*.rej
+
+# --- local authoring material (never commit audio or images) -----------
+/test/
+*.iso
+*.AOB
+*.VOB
+
+# --- keys (upstream had these) -----------------------------------------
+/key.fingerprint
+/key.ppk.pub
+/sshaccess
+**ppk
+*.old
+*.zip
+*.gz
+*.bz2
+*.xz
